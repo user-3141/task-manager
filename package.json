@@ -1,0 +1,76 @@
+{
+  "name": "task-manager",
+  "version": "1.0.0",
+  "description": "Menedżer zadań z React i Electron",
+  "main": "public/electron.js",
+  "homepage": "./",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "electron": "electron .",
+    "electron-dev": "cross-env NODE_ENV=development electron .",
+    "electron:wait": "wait-on -v tcp:5173 && electron .",
+    "all-dev": "cross-env NODE_ENV=development concurrently --kill-others \"npm run dev\" \"npm run electron:wait\"",
+    "electron-build": "npm run build && electron-builder",
+    "lint": "eslint src --ext .js,.jsx,.ts,.tsx",
+    "lint:fix": "eslint src --ext .js,.jsx,.ts,.tsx --fix",
+    "test": "vitest",
+    "test:ui": "vitest --ui"
+  },
+  "dependencies": {
+    "lucide-react": "^0.263.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "@vitejs/plugin-react": "^4.0.3",
+    "autoprefixer": "^10.4.14",
+    "concurrently": "8.2.2",
+    "cross-env": "7.0.3",
+    "electron": "25.9.8",
+    "electron-builder": "^24.4.0",
+    "eslint": "^8.45.0",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.3",
+    "jsdom": "26.1.0",
+    "postcss": "^8.4.27",
+    "tailwindcss": "^3.3.3",
+    "vite": "^4.4.5",
+    "vitest": "^0.34.1",
+    "wait-on": "7.2.0"
+  },
+  "build": {
+    "appId": "com.przemyslawdabrowski.taskmanager",
+    "productName": "Menedżer Zadań",
+    "directories": {
+      "output": "dist-electron"
+    },
+    "files": [
+      "dist/**/*",
+      "public/electron.js",
+      "node_modules/**/*"
+    ],
+    "mac": {
+      "category": "public.app-category.productivity"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
+  },
+  "keywords": [
+    "task-manager",
+    "todo",
+    "react",
+    "electron",
+    "productivity"
+  ],
+  "author": "Przemysław Dąbrowski",
+  "license": "MIT"
+}
