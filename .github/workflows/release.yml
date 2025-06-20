@@ -83,6 +83,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ needs.create-release.outputs.upload_url }}
-        asset_path: "./dist-electron/Menedżer Zadań-1.0.0.dmg"
+        asset_path: "./dist-electron/Menedżer Zadań-1.0.0-arm64.dmg"
         asset_name: TaskManager-macOS.dmg
         asset_content_type: application/octet-stream
