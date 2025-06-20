@@ -84,6 +84,8 @@ const TaskManager = () => {
               className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
             />
             <button
+              aria-label='Add task'
+              title='Add task'
               onClick={addTask}
               className="px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors flex items-center gap-2"
             >
@@ -111,6 +113,8 @@ const TaskManager = () => {
               { key: 'completed', label: 'Ukończone', count: completedCount }
             ].map(({ key, label, count }) => (
               <button
+                aria-label={key}
+                title={key}
                 key={key}
                 onClick={() => setFilter(key)}
                 className={`px-4 py-2 rounded-lg transition-colors ${
@@ -143,6 +147,8 @@ const TaskManager = () => {
                   }`}
                 >
                   <button
+                    aria-label='Toggle task'
+                    title='Toggle task'
                     onClick={() => toggleTask(task.id)}
                     className={`flex-shrink-0 w-6 h-6 rounded-full border-2 flex items-center justify-center transition-colors ${
                       task.completed
@@ -167,6 +173,8 @@ const TaskManager = () => {
                   </div>
                   
                   <button
+                    aria-label='Delete task'
+                    title='Delete task'
                     onClick={() => deleteTask(task.id)}
                     className="flex-shrink-0 p-2 text-red-500 hover:bg-red-50 rounded-lg transition-colors"
                   >
@@ -182,6 +190,8 @@ const TaskManager = () => {
         {completedCount > 0 && (
           <div className="mt-6 text-center">
             <button
+              aria-label='Clear completed'
+              title='Clear completed'
               onClick={clearCompleted}
               className="px-6 py-3 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors flex items-center gap-2 mx-auto"
             >
