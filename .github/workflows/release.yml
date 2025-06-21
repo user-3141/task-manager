@@ -28,6 +28,39 @@ jobs:
         draft: false
         prerelease: false
 
+  build-static:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Build static website
+        run: npm run build
+        
+      - name: Create static website archive
+        run: |
+          cd dist  # or your build output directory
+          zip -r ../static-website-${{ github.ref_name }}.zip .
+          cd ..
+          tar -czf static-website-${{ github.ref_name }}.tar.gz -C dist .
+        
+      - name: Upload static build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: static-website
+          path: |
+            static-website-*.zip
+            static-website-*.tar.gz
+  
   build-and-upload:
     needs: create-release
     runs-on: ${{ matrix.os }}
