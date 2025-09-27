@@ -11,6 +11,11 @@ Prosty menedżer zadań zbudowany w **React** z możliwością uruchomienia jako
 - **Zapis lokalny** - Automatyczny zapis w localStorage (bez potrzeby backendu)
 - **Statystyki** - Podgląd liczby zadań w różnych stanach
 
+## Zapis Danych
+- Dane są zapisywane automatycznie w `localStorage` przeglądarki
+- Nie wymaga żadnego backendu ani bazy danych
+- Dane są trwałe między sesjami
+
 ## Technologie
 
 - **React 18** - Biblioteka do budowy interfejsu
@@ -68,9 +73,9 @@ npm run electron-build
 ```
 
 Pliki instalacyjne znajdziesz w folderze `dist-electron/`:
-- Windows: `.exe` installer
-- macOS: `.dmg` installer  
-- Linux: `.AppImage` file
+- Windows: `.exe` 
+- macOS: `.dmg` 
+- Linux: `.AppImage` 
 
 ## Testowanie i Jakość Kodu
 
@@ -124,17 +129,6 @@ server: {
   port: 3000 // zmień na wybrany port
 }
 ```
-
-## Funkcjonalności Techniczne
-
-### Zapis Danych
-- Dane są zapisywane automatycznie w `localStorage` przeglądarki
-- Nie wymaga żadnego backendu ani bazy danych
-- Dane są trwałe między sesjami
-
-### Responsywność
-- Aplikacja działa na wszystkich urządzeniach
-- Adaptive layout z Tailwind CSS
 
 ## Autor
 
