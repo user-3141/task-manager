@@ -45,7 +45,7 @@ cd task-manager
 npm install
 ```
 
-## 🏃‍♂️ Uruchamianie
+## Uruchamianie
 
 ### Aplikacja webowa (rozwój)
 ```bash
